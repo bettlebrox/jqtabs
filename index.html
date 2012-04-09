@@ -1,0 +1,36 @@
+<html>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" ></script>
+	<script type="text/javascript" src=" https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.js" ></script>
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" media="all">
+	<script>
+		$(document).ready(function(){
+			$('#tabs').tabs(
+			{'load':function(){
+				$('#subtabs').tabs();
+				},
+		 	}
+		);
+	});
+	$(".linktotab").die();
+	$(".linktotab").live('click', function(){
+		showTab("<p>Done!</p>");
+	});
+	function showTab(content){
+		$('#tabs').tabs({'load':function(){
+			$('#subtabs').tabs({'load':function(){
+				$('#response').replaceWith(content);
+		}});
+	}});
+		$('#tabs').tabs('select', 0);
+		$('#subtabs').tabs('select', 1);
+	}
+	</script>
+	<body>
+		<div id="tabs">
+			<ul>
+				<li><a href="req.html">tab 1 </a></li>
+				<li><a href="req1.html">tab 2</a></li>
+			</ul>																							</div>
+	</body>
+</html>
+
